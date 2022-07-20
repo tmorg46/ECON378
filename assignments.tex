@@ -1,0 +1,114 @@
+\documentclass[12pt, oneside]{article}
+\usepackage{geometry}
+\geometry{letterpaper}
+\usepackage{graphicx}
+									
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{comment}
+\setcounter{secnumdepth}{0}
+
+\title{Excel-Stata Block Assignments}
+\author{Content by Tommy Morgan&Formatting adapted from Natalie Jensen $\&$ Emily Leslie&Resources at github.com/tmorg46/ECON378}
+\date{Last Updated May 2022}
+\begin{document}
+\maketitle
+
+\section{Nice to Sheet You: Excel (16 pts)}
+Answer the following questions in a Word document or Google Doc and turn it in as a PDF. If you turn in your Excel data, you will get a \underline{\textbf{zero!}}
+
+\subsection{Prep Work™}
+
+\item   Open a blank worksheet in Excel or Google Sheets and type ``=IF( " into any cell to begin writing an \texttt{=IF()} function. When you do, Excel (or Sheets) will bring up a dialogue box that includes the three parameters \texttt{logical$\_$expression}, \texttt{value$\_$if$\_$true}, and \texttt{value$\_$if$\_$false}. (If a little box doesn't appear in Sheets, you might have to click the little question mark button next to the cell you're editing.)
+\begin{enumerate}
+\item   (+1)    What is a logical expression?
+\item   (+2)    If you write an \texttt{=IF()} function that includes  \texttt{value$\_$if$\_$true} but \textbf{does not} include \texttt{value$\_$if$\_$false}, what happens differently from writing the same \texttt{=IF()} function and including both \texttt{value$\_$if$\_$true} and \texttt{value$\_$if$\_$false}? (Hint: make up some data and try it!)
+\end{enumerate}
+
+\subsection{Utah State women's gymnastics data exercise} 
+From the Content tab on Learning Suite, download the file ``gymnasts$\_$excel.xlsx" and open it in Excel or Google Sheets. This dataset contains meet information and scores from the 2021 and 2022 Utah State University women's gymnastics seasons. Each column contains a single variable, like vault score or gymnast name, and each row contains a single gymnast's results, so each gymnast will show up multiple times but only once per meet.
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item   (+1)    Search the internet for an Excel function that can take a column full of duplicate values and return a list of the unique values in that column. Use that function to get the names of each unique gymnast in this dataset. How many unique gymnasts are there?
+\item	(+1)	What is the lowest vault score in the dataset?  Which gymnast received that score? (Hint: you can use a \texttt{=MIN()} function or filter the dataset)
+\item	(+2)	Use an \texttt{=IF()} function to construct a new variable that takes a value of 1 if a performance happened at a meet hosted by BYU and 0 if it happened elsewhere. What percentage of performances in the dataset come from BYU meets?
+\item   (+2)    Use four \texttt{=CORREL()} functions to calculate the correlation between a gymnast's being Black and their score in each of the four events. What are those four correlation coefficients?
+\item	In the NCAA, gymnasts do not need to perform in all four events every time they compete; when they do, they are called an ``all-arounder". This dataset does not contain direct information on which gymnasts are all-arounders... or does it?
+\begin{enumerate}
+\item	(+2)	Use four \texttt{=MIN()} functions to find the lowest score in each event, then use a \texttt{=SUM()} function to total those low scores into one cell. What is that total? In this dataset, would a gymnast that performs in all four events in one meet (an all-arounder) be able to score lower than that total? 
+\item	(+3)	Use a nested \texttt{=IF(SUM())} function to create a new variable that takes a value of 1 if the gymnast in that row was an all-arounder for that meet and 0 otherwise. How many of the observations in the dataset come from all-arounders?
+\end{enumerate}
+\item   (+2)    Create a histogram of scores for any \textbf{one} of the four events, and change the title to ``A Super Cool Histogram". Copy and paste it into your document!
+\end{enumerate}
+
+
+\newpage
+\section{A Blind Date with Big Data: Stata 1 (19 pts)}
+Answer the following questions in the assignment do file, then turn in that do file on Learning Suite. If you turn in anything else, you will get a \underline{\textbf{zero!}}
+
+\subsection{Prep Work™}
+\item   From the Content tab on Learning Suite, download the file ``stata1.do" and open it in Stata. This is an example .do file that is designed to get you familiar with best practices in Stata. You'll use it for the rest of this assignment!
+\begin{enumerate}
+\item   (+2)    In stata1.do, modify the two \texttt{globals} at the top of the assignment so that they identify you.
+\end{enumerate}
+
+\subsection{More NCAA women's gymnastics data!}
+From the Content tab on Learning Suite, download the file ``gymnasts$\_$stata.dta". This dataset contains meet information and scores from the regular seasons of every women's gymnastics team that has visited BYU from 2017 to 2022. The rows and columns are identical to those you saw in the Excel assignment, but this dataset has over 4000 observations!
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item	(+1)	In stata1.do, modify the path in the \texttt{cd} command to point to the folder where you downloaded your copy of ``gymnasts$\_$stata.dta". Run the \texttt{cd} command you just modified and the \texttt{use} command just below it. This will load in the dataset! 
+\item   (+1)    Add an asterisk to the beginning of the line with the \texttt{cd} command to turn the whole line into a comment. (The TA grading these will be really sad if you skip this.)
+\item   (+2)    Run a \texttt{browse} command in the command window (not in the do file) to take a look at the data. How many observations are there in the dataset? Fill that number into \texttt{global observations} in the do file.
+\item   (+2)    Modify the \texttt{destring} command in the do file so that it turns the four event score variables from string to numeric. (Remember, \texttt{force} is always an option!)
+\item   (+3)    Now that the scores are numeric, run a \texttt{sort} command in the command window that sorts the dataset by floor score. What is the sixth lowest floor score in the dataset? What gymnast received that score, and what team did she play for? Fill your answers into their corresponding \texttt{globals}.
+\item   MyKayla Skinner is an Olympic gymnast who competed for the University of Utah when she was in college. Her teammates are wondering how different her average scores were on each event from the team's overall averages. Coincidentally, the dataset you have is perfect for this question!
+\begin{enumerate}
+    \item (+2) In the command window, run a \texttt{summarize} command with an \texttt{if} statement to obtain the University of Utah's average score in each of the four events across the whole dataset. Fill each event's average into the corresponding \texttt{global Utah$\_$average$\_$event} in the do file.
+    \item (+2) Now run a \texttt{summarize} command with an \texttt{if} statement to obtain MyKayla Skinner's average score in each of the four events. Fill each event's average into the corresponding \texttt{global MyKayla$\_$average$\_$event} in the do file.
+\end{enumerate}
+\item    Former President Barack Obama is interested in using your data for a project at the Obama Foundation. Of the four events, he only cares about the uneven bars, and he doesn't need to know about the team a gymnast played for or what school hosted each meet. Also, because the interns at the Obama Foundation aren't used to Stata, he's asked that you share whatever you share with him as a .csv file.
+\begin{enumerate}
+    \item (+1) Modify the first \texttt{drop} command to get rid of the the three event score variables and two non-score variables that President Obama told you he doesn't need.
+    \item (+1) Modify the second \texttt{drop} command to get rid of all of the observations that are missing a bars score.
+    \item (+2) Modify the \texttt{export} command so that it will output a comma-separated values (.csv) file like President Obama asked. (Hint: Running \texttt{help export} in the command window might be helpful here!)
+    \item (+0) Run the three commands you just modified. Double-check that the .csv file that the commands create contains all the modifications that President Obama asked you to make, and make sure you save it somewhere you can access later, as you may find it useful very soon...
+\end{enumerate}
+\end{enumerate}
+
+
+\newpage
+\section{More Data, No Problems: Stata 2 (20 pts +2)}
+Answer the following questions in the assignment do file, then turn in that do file on Learning Suite. If you turn in anything else, you will get a \underline{\textbf{zero!}}
+
+\subsection{Prep Work™}
+\item   From the Content tab on Learning Suite, download the file ``stata2.do" and open it in Stata. This is a nearly empty .do file that is designed to evaluate your ability to use the \texttt{help} menus and your knowledge of Stata syntax to write great code. You'll write most of the file in this assignment!
+\begin{enumerate}
+\item   (+2)    In stata2.do, modify the two \texttt{globals} at the top of the assignment so that they identify you.
+\item   (Bonus +2)  Write a comment describing what you're doing above every command that \textbf{you} write in this assignment.
+\end{enumerate}
+
+\subsection{A new internship at the Obama Foundation}
+\item Congratulations! It's your first day as an intern at the Obama Foundation! You've been brought on to examine whether Black and non-Black gymnasts in NCAA women's gymnastics have different experiences on the uneven bars as seasons progress. To do this, your supervisor has provided you with a .csv file that they got from a student who... happens to share your exact name? Interesting! They also gave you a list of instructions for analyzing this data in Excel, but...
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item   (+2)    In stata2.do, write a \texttt{cd} command and an \texttt{import} command that together will bring the data from your .csv file from last assignment into Stata.
+\item   (+1)    Go back and comment out the \texttt{cd} command you wrote in question 3. 
+\item   (+2)    To see if gymnasts improve in bars as the season goes on, use \texttt{correl} commands with \texttt{if} statements in the command window to find the correlation of bars scores with meet number for both Black and non-Black gymnasts. Report those correlation coefficients in stata2.do within their corresponding \texttt{globals}.
+\item Because doing that first project in Stata instead of Excel left you with two extra hours at the end of your first day, you have time to clean some data from the 1930 US Census that the intern you replaced was working on! From the Content tab on Learning Suite, download the file ``c1930.dta" and get to work!
+\begin{enumerate}
+    \item (+2) Write a line that changes the directory to the folder where you downloaded idk$\_$lol.dta (even if you downloaded it to the directory you're already in) and a line that opens the file into Stata. After the dataset is open in Stata, go back and comment out the directory changing command like you did in question 4.
+    \item (+1) Write code that changes the names of the variables from ``var1" and ``var2" to ``years$\_$of$\_$education" and ``household$\_$income".
+    \item (+2) Write a command that changes the household$\_$income variable from string to numeric.
+    \item Your goal with this data is to regress household income on years of education, but the values of the education variable might be labeled strangely. To see if this is the case, run a \texttt{tab} command followed by a \texttt{tab, nolabel} command in the command window to figure out the coded values behind all of the ``years$\_$of$\_$education" labels.
+    \begin{enumerate}
+    \item (+4) Write code that changes the numeric values of the years$\_$of$\_$education variable so that they match with the number of years of education represented by their labels; for example, if the label ``Kindergarten'' was assigned to the value 12, you would recode it to 1. To start, recode the value labeled ``99" to the missing value and the value labeled ``None" to 0. (Warning: running this code will make the labels in the browse window or tab commands wrong, but that's okay!)
+    \item (+0) After running that code, you can run \texttt{label drop $\_$all} to get rid of the newly incorrect labels on education.
+    \item (+2) In the command window, regress household income on education. Report the constant term in \texttt{global beta$\_$not} and the slope coefficient in \texttt{global beta$\_$one}.
+    \end{enumerate}
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,21 @@
+******************
+
+Q1: (+1) A logical expression is a math statement that can be true or false.
+
+Q2: (+2) IF you don't provide a value_if_false, the program will just use FALSE.
+
+Q3: (+1) The function is =UNIQUE(), there are 23 unique gymnasts.
+
+Q4: (+1) The lowest vault score in the set is 8.85 by Brianna Brooks.
+
+Q5: (+2) 9.058% of the meets in the dataset happened at BYU.
+
+Q6: (+2) In order, the four correlation coefficients are -0.08, -0.11, 0.03, and 0.09, for vault, bars, beam, and floor.
+
+Q7: (+2) The sum of low scores is 34.05, and an all-arounder would not be able to score lower in this dataset.
+
+Q8: (+3) 18 of the scores in the dataset are all-around scores.
+
+Q9: (+2) Full points for a histogram of one of the scores.
+
+*******************
