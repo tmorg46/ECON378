@@ -23,7 +23,7 @@ global your_professor Dr. Jensen
 ***********
 
 *tell Stata to look in the correct folder (change the path)
-cd "V:\FHSS-JoePriceResearch\RA_work_folders\Tommy_Morgan\ECON378\stata1\data_and_submissions"
+cd "C:\Users\morganto\Desktop\ECON378-main\stata1\data_and_submissions"
 
 *open the gymnasts_stata.dta dataset (don't edit)
 use gymnasts_stata, clear
