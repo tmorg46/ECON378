@@ -12,7 +12,7 @@ output is a log file which allows you to compare student answers to correct answ
 
 
 *set your route to the data_and_submissions folder
-global route "V:\FHSS-JoePriceResearch\RA_work_folders\Tommy_Morgan\ECON378\stata1"
+global route "C:\Users\morganto\Desktop\ECON378-main\stata1"
 cd "$route\data_and_submissions"
 
 *start a log file that will track the output
