@@ -30,7 +30,7 @@ global i_promise_i_commented yes
 *Question 3
 ***********
 
-cd "V:\FHSS-JoePriceResearch\RA_work_folders\Tommy_Morgan\ECON378\stata2\data_and_submissions"
+cd "C:\Users\morganto\Desktop\ECON378-main\stata2\data_and_submissions"
 
 import delimited using data_for_obama, clear
 
@@ -58,7 +58,7 @@ global nonblack_bars_meet 0.0626
 ***********
 
 *change the directory
-cd "V:\FHSS-JoePriceResearch\RA_work_folders\Tommy_Morgan\ECON378\stata2\data_and_submissions"
+cd "C:\Users\morganto\Desktop\ECON378-main\stata2\data_and_submissions"
 
 *use the old intern's file
 use idk_lol, clear
