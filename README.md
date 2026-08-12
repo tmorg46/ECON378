@@ -1,9 +1,8 @@
 # BYU ECON 378: Statistics for Economists
 
-## last updated 12 Aug 2026
+last updated 12 Aug 2026
 
-### NOTE! The Google Drive link in the Teaching Notes is dead!
-### The sheets I reference are now included in the WRTG150 directory!
+**NOTE! The Google Drive link in the Teaching Notes is dead! The sheets I reference are now included in the WRTG150 directory!**
 
 a YouTube playlist of me giving example versions of these lectures:
 
