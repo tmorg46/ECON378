@@ -2,8 +2,10 @@
 
 last updated 12 Aug 2026
 
+12 Aug 2026 update:
 **NOTE! The Google Drive link in the Teaching Notes is dead! The sheets I reference are now included in the z_bigsheets directory!**
 
+13 Jul 2022 original content:
 a YouTube playlist of me giving example versions of these lectures:
 
 https://www.youtube.com/playlist?list=PLVyEkXd3fMVGMbZBBWRhDyQCHaTMA7JNe
